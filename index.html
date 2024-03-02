@@ -13,14 +13,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/d7c0cd9c88.js" crossorigin="anonymous"></script>
     <style>
         .font-mulish{
             font-family: "Mulish", sans-serif;
         }
     </style>
 </head>
-<body class="font-mulish p-2">
-    <header class="max-w-[1170px] mx-auto mt-4">
+<body class="font-mulish">
+    <header class="mt-2  p-2 max-w-[1170px] mx-auto">
         <!--nav bar-->
         <div class="navbar bg-base-100">
             <div class="navbar-start">
@@ -50,7 +52,7 @@
             </div>
           </div>
           <!-- banner -->
-          <div class="hero rounded-3xl bg-cover bg-[#12132D] h-[550px] lg:my-10" style="background-image: url('./images/banner.png'); ">
+          <div class="hero rounded-3xl bg-cover bg-[#12132D] h-[550px] lg:mb-10 lg:mt-2" style="background-image: url('./images/banner.png'); ">
             <div class="hero-content flex-col lg:flex-row-reverse lg:px-20">
                 <div class="card w-80 bg-base-100 shadow-xl">
                     <div class="card-body text-lg font-bold">
@@ -62,12 +64,57 @@
                   </div>
               <div class="lg:w-[633px]">
                 <h1 class="lg:text-6xl text-3xl font-extrabold text-[#FFFFFF]">Welcome to the <span class="text-[#797DFC]">VinTage</span> Forum</h1>
-                <p class="text-[#FFFFFF] lg:my-5 my-2">Where nostalgia meets discussion, offering a retro haven for enthusiasts of bygone eras!!</p>
+                <p class="text-[#FFFFFF] lg:my-7 my-2">Where nostalgia meets discussion, offering a retro haven for enthusiasts of bygone eras!!</p>
                 <input type="text" placeholder="Search here anything" class="lg:pl-2 lg:pr-48 lg:py-4 py-2 rounded-full" />
                 <button class="lg:py-2 py-2 text-white px-8 rounded-full text-lg bg-[#797DFC] font-semibold lg:ml-[-130px]">Search</button>
               </div>
             </div>
           </div>
     </header>
+    <main class=" p-2 max-w-[1170px] mx-auto">
+        <!--Lets Discuss section-->
+        <section class="lg:my-16">
+            <h1 class="text-6xl font-extrabold text-center">Let's Discuss</h1>
+            <p class="text-[#12132D99] lg:my-5 my-2 text-center">This is a vibrant community where every discussion thread unravels layers of nostalgia Join us in exploring the<br> rich tapestry of the past, one engaging dialogue at a time, only at VintageForum.</p>
+            <div>
+
+            </div>
+        </section>
+        <!-- Join our forum section -->
+        <section>
+            <div class="hero rounded-3xl bg-cover bg-[#12132D] h-[550px] lg:mb-10 lg:mt-2">
+                <div class="hero-content flex-col lg:flex-row-reverse lg:px-20">
+                    <img src="./images/joinforum.png" alt="">
+                  <div class="lg:w-[633px]">
+                    <h1 class="lg:text-6xl text-3xl font-extrabold text-[#FFFFFF]">Join Our Forum</h1>
+                    <p class="text-[#FFFFFF] lg:my-7 my-2"> Join us and rediscover the magic of the past, one conversation at a time.</p>
+                    <button class="lg:py-2 py-2 text-white px-8 rounded-full text-lg bg-[#797DFC] font-semibold">Register Now</button>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <!-- Latest Posts section -->
+        <section>
+            <h1 class="text-6xl font-extrabold text-center">Latest Posts</h1>
+            <p class="text-[#12132D99] lg:my-5 my-2 text-center">Discover the pulse of nostalgia with the latest posts on VintageForum. Dive into <br>dynamic discussions that celebrate the timeless allure of retro culture.</p>
+            <div>
+
+            </div>
+        </section>
+    </main>
+    <footer class="max-w-[1440px] mx-auto bg-[#1313180D]">
+        <div class="text-center max-w-[800px] mx-auto py-24">
+            <h3 class="text-4xl font-extrabold">VinTage</h3>
+            <p class="mt-7">Explore more on VintageForum: Join the conversation, share memories, and relive the past in our thriving retro community.</p>
+            <div class="my-8 text-3xl mx-auto  tracking-widest">
+               <a href=""><i class="fa-brands fa-twitter"></i></a>
+               <a href=""><i class="fa-brands fa-facebook"></i></a>
+               <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+               <a href=""><i class="fa-brands fa-github"></i></a>
+            </div>
+            <hr>
+            <p class="mt-11">2017, All Rights Reserved.</p>
+        </div> 
+    </footer>
 </body>
 </html>
