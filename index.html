@@ -65,8 +65,8 @@
               <div class="lg:w-[633px]">
                 <h1 class="lg:text-6xl text-3xl font-extrabold text-[#FFFFFF]">Welcome to the <span class="text-[#797DFC]">VinTage</span> Forum</h1>
                 <p class="text-[#FFFFFF] lg:my-7 my-2">Where nostalgia meets discussion, offering a retro haven for enthusiasts of bygone eras!!</p>
-                <input type="text" placeholder="Search here anything" class="lg:pl-2 lg:pr-48 lg:py-4 py-2 rounded-full" />
-                <button class="lg:py-2 py-2 text-white px-8 rounded-full text-lg bg-[#797DFC] font-semibold lg:ml-[-130px]">Search</button>
+                <input id="search-field" type="text" placeholder="Search here anything" class="lg:pl-2 lg:pr-48 lg:py-4 py-2 rounded-full" />
+                <button onclick ="handleSearch()" class="lg:py-2 py-2 text-white px-8 rounded-full text-lg bg-[#797DFC] font-semibold lg:ml-[-130px]">Search</button>
               </div>
             </div>
           </div>
@@ -76,8 +76,26 @@
         <section class="lg:my-16">
             <h1 class="text-6xl font-extrabold text-center">Let's Discuss</h1>
             <p class="text-[#12132D99] lg:my-5 my-2 text-center">This is a vibrant community where every discussion thread unravels layers of nostalgia Join us in exploring the<br> rich tapestry of the past, one engaging dialogue at a time, only at VintageForum.</p>
-            <div>
-
+            <!--News container dynamic-->
+            <div class="flex gap-5 lg:flex-row flex-col">
+              <div id="news-container" class="flex flex-col gap-5">
+              </div>
+              <!-- right content -->
+              <div id="read-count-container">
+                <div class="bg-[#F7F8F8] rounded-2xl p-4 w-[470px]">
+                    <div class="flex justify-between items-center">
+                      <p class="font-extrabold text-xl">Title</p>
+                        <div class="flex gap-1">
+                        <p class="font-bold">Mark as read</p>
+                        <p id="cart-count" class="bg-[#12132D99] rounded-md text-white px-[6px] font-medium">0</p>
+                        </div>
+                    </div>
+                    <div class="border-dashed border-y-2 my-3">
+                        <div id="selected-seat-container">
+                        </div>             
+                    </div>
+                </div>
+              </div>
             </div>
         </section>
         <!-- Join our forum section -->
@@ -116,5 +134,6 @@
             <p class="mt-11">2017, All Rights Reserved.</p>
         </div> 
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
