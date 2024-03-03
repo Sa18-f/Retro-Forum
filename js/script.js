@@ -2,7 +2,6 @@ const loadAllPosts = async () => {
   const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
   const data = await res.json();
   const posts = data.posts;
-  // console.log(posts);
   displayNews(posts);
 }
 const loadNews = async (searchText) =>{
@@ -10,9 +9,6 @@ const loadNews = async (searchText) =>{
     const data = await res.json();
     const posts = data.posts;
     displayNews(posts);
-    // data.posts.forEach((post) => {
-    //     console.log(post);
-    // })
 }
 const displayNews = (posts) => {
   const newsContainer = document.getElementById('news-container');
@@ -69,7 +65,6 @@ const markAsRead = (title, view) => {
   div.classList.add('flex', 'justify-between', 'items-center', 'my-3');
   const p = document.createElement('p');
   p.textContent = `${title}`;
-  
   const p2 = document.createElement('p');
   const viewIcon = document.createElement('i');
   viewIcon.className = 'fas fa-eye';
@@ -84,7 +79,6 @@ const handleSearch = () =>{
     toggleLoadingSpinner(true);
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    // console.log(searchText);
     loadNews(searchText);
 }
 const toggleLoadingSpinner = (isLoading) =>{
@@ -100,7 +94,6 @@ const loadLatestPosts = async () =>{
   const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts');
   const data = await res.json();
   const latestPosts = data;
-  // console.log(latestPosts);
   displayLatestNews(latestPosts);
 }
 const displayLatestNews = (latestPosts) =>{
@@ -130,23 +123,3 @@ const displayLatestNews = (latestPosts) =>{
 }
 loadLatestPosts();
 loadAllPosts();
-// const displayLatestNews = (latestPosts) =>{
-//   const latestPostsContainer = document.getElementById('latest-posts-container');
-//   latestPosts.forEach(item =>{
-//     console.log(item);
-//     const postCard = document.createElement('div');
-//     postCard.classList = `card bg-base-100 shadow-xl`;
-//     postCard.innerHTML = `
-//     <figure><img src="${latestPost.cover_image}" alt="Shoes" /></figure>
-//     <div class="card-body">
-//       <h2 class="card-title"></h2>
-//       <p>If a dog chews shoes whose shoes does he choose?</p>
-//     </div>
-//     `;
-//     latestPostsContainer.appendChild(postCard);
-//   });  
-// }
-// loadLatestPosts();
-
-
-// loadNews();
