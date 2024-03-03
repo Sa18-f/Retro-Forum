@@ -42,7 +42,7 @@ const displayNews = (posts) => {
             </div>
             <div class="flex gap-1">
               <img class="h-7" src="./images/Group 18.png" alt="">
-              <p>${post.posted_time}</p>
+              <p>${post.posted_time} min</p>
             </div>
           </div>
           <button onclick="markAsRead('${post.title.replace(/'/g,'')}', ${post.view_count})" class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
