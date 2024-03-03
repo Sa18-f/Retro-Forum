@@ -1,3 +1,9 @@
+const loadAllPosts = async () => {
+  const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+  const data = await res.json();
+  const posts = data.posts;
+  displayNews(posts);
+}
 const loadNews = async (searchText) =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
     const data = await res.json();
@@ -24,7 +30,7 @@ const displayNews = (posts) => {
           <p>#<span>${post.category}</span></p>
           <p>Author :  <span>${post.author.name}</span></p>
         </div>
-        <h2 class="card-title">${post.title}</h2>
+        <h2 class="card-title">${post.title.replace(/'/g,'')}</h2>
         <p>${post.description}</p>
         <hr class="my-3">
         <div class="flex justify-between">
@@ -42,12 +48,15 @@ const displayNews = (posts) => {
               <p>${post.posted_time}</p>
             </div>
           </div>
-          <button onclick="markAsRead('${post.title}', ${post.view_count})" class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
+          <button onclick="markAsRead('${post.title.replace(/'/g,'')}', ${post.view_count})" class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
         </div>
       </div>
       `;
       newsContainer.appendChild(div);
   });
+  setTimeout(() => {
+    toggleLoadingSpinner(false);
+  }, 2000);
 }; 
 let markAsReadCount = 0;
 const markAsRead = (title, view) => {
@@ -71,10 +80,20 @@ const markAsRead = (title, view) => {
 };
 
 const handleSearch = () =>{
+    toggleLoadingSpinner(true);
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     // console.log(searchText);
     loadNews(searchText);
 }
-
+const toggleLoadingSpinner = (isLoading) =>{
+  const loadingSpinner = document.getElementById('loader-spinner');
+  if(isLoading){
+    loadingSpinner.classList.remove('hidden');
+  }
+  else{
+    loadingSpinner.classList.add('hidden');
+  }
+}
+loadAllPosts();
 // loadNews();
