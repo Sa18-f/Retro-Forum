@@ -10,7 +10,6 @@ const loadNews = async (searchText) =>{
 const displayNews = (posts) => {
   const newsContainer = document.getElementById('news-container');
   newsContainer.textContent = '';
-  const readCount = document.getElementById('read-count-container');
   posts.forEach(post => {
       const statusBadge = `<div class="absolute top-4 left-20 w-4 h-4 rounded-full ${post.isActive ? 'bg-green-500' : 'bg-red-500'}"></div>`;
       const div = document.createElement('div');
@@ -35,7 +34,7 @@ const displayNews = (posts) => {
               <p>${post.comment_count}</p>
             </div>
             <div class="flex gap-1">
-              <img class="h-7" src="./images/Group 16.png" alt="">
+              <i class="fas fa-eye mt-1"></i>
               <p>${post.view_count}</p>
             </div>
             <div class="flex gap-1">
@@ -43,17 +42,38 @@ const displayNews = (posts) => {
               <p>${post.posted_time}</p>
             </div>
           </div>
-          <button class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
+          <button onclick="markAsRead('${post.title}', ${post.view_count})" class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
         </div>
       </div>
       `;
       newsContainer.appendChild(div);
   });
 }; 
+let markAsReadCount = 0;
+const markAsRead = (title, view) => {
+  markAsReadCount++;
+  const markAsReadCountZone = document.getElementById('mark-count');
+  markAsReadCountZone.textContent = markAsReadCount;
+  const readCountContainer = document.getElementById('read-count-container');
+  const div = document.createElement('div');
+  div.classList.add('flex', 'justify-between', 'items-center', 'my-3');
+  const p = document.createElement('p');
+  p.textContent = `${title}`;
+  
+  const p2 = document.createElement('p');
+  const viewIcon = document.createElement('i');
+  viewIcon.className = 'fas fa-eye';
+  p2.appendChild(viewIcon);
+  p2.appendChild(document.createTextNode(` ${view}`));
+  div.appendChild(p);
+  div.appendChild(p2);
+  readCountContainer.appendChild(div);
+};
+
 const handleSearch = () =>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    console.log(searchText);
+    // console.log(searchText);
     loadNews(searchText);
 }
 
