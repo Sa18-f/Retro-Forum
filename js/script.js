@@ -2,6 +2,7 @@ const loadAllPosts = async () => {
   const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
   const data = await res.json();
   const posts = data.posts;
+  // console.log(posts);
   displayNews(posts);
 }
 const loadNews = async (searchText) =>{
@@ -95,5 +96,57 @@ const toggleLoadingSpinner = (isLoading) =>{
     loadingSpinner.classList.add('hidden');
   }
 }
+const loadLatestPosts = async () =>{
+  const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data = await res.json();
+  const latestPosts = data;
+  // console.log(latestPosts);
+  displayLatestNews(latestPosts);
+}
+const displayLatestNews = (latestPosts) =>{
+  const latestPostsContainer = document.getElementById('latest-posts-container');
+  latestPosts.forEach(item =>{
+    const postCard = document.createElement('div');
+    postCard.classList = `card bg-base-100 shadow-xl mb-12`;
+    postCard.innerHTML = `
+    <figure><img src="${item.cover_image}" alt="Cover Image" /></figure>
+    <div class="card-body">
+      <div class="flex gap-1">
+       <img class="w-6 h-6" src="./images/Frame (3).png" alt="Profile Image" /><span>${item.author.posted_date ? `<p>${item.author.posted_date}</p>` : 'No Publish Date'}</span>
+      </div>
+      <h2 class="card-title font-extrabold">${item.title}</h2>
+      <p>${item.description}</p>
+      <div class="author-info flex gap-2 mt-2">
+        <img class="w-16 h-16 rounded-full" src="${item.profile_image}" alt="Profile Image" />
+        <div>
+          <p class="font-extrabold">${item.author.name}</p>
+          ${item.author.designation ? `<p>${item.author.designation}</p>` : 'Unknown'}
+        </div>
+      </div>
+    </div>
+    `;
+    latestPostsContainer.appendChild(postCard);
+  });  
+}
+loadLatestPosts();
 loadAllPosts();
+// const displayLatestNews = (latestPosts) =>{
+//   const latestPostsContainer = document.getElementById('latest-posts-container');
+//   latestPosts.forEach(item =>{
+//     console.log(item);
+//     const postCard = document.createElement('div');
+//     postCard.classList = `card bg-base-100 shadow-xl`;
+//     postCard.innerHTML = `
+//     <figure><img src="${latestPost.cover_image}" alt="Shoes" /></figure>
+//     <div class="card-body">
+//       <h2 class="card-title"></h2>
+//       <p>If a dog chews shoes whose shoes does he choose?</p>
+//     </div>
+//     `;
+//     latestPostsContainer.appendChild(postCard);
+//   });  
+// }
+// loadLatestPosts();
+
+
 // loadNews();
