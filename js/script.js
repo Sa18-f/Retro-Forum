@@ -15,9 +15,9 @@ const displayNews = (posts) => {
     newsContainer.textContent = '';
   setTimeout(() => {
     posts.forEach(post => {
-        const statusBadge = `<div class="absolute top-4 left-20 w-4 h-4 rounded-full ${post.isActive ? 'bg-green-500' : 'bg-red-500'}"></div>`;
+        const statusBadge = `<div class="absolute top-4 lg:left-20 right-[-24px] w-4 h-4 rounded-full ${post.isActive ? 'bg-green-500' : 'bg-red-500'}"></div>`;
         const div = document.createElement('div');
-        div.classList = `card card-side bg-base-100 shadow-xl lg:w-[700px]`;
+        div.classList = `card card-side bg-base-100 shadow-xl `;
         div.innerHTML = `
         <div class="relative">   
           <img class="ml-4 mt-3 w-20 rounded-full h-20" src="${post.image}" alt="Movie"/>
@@ -62,7 +62,7 @@ const markAsRead = (title, view) => {
   markAsReadCountZone.textContent = markAsReadCount;
   const readCountContainer = document.getElementById('read-count-container');
   const div = document.createElement('div');
-  div.classList.add('flex', 'justify-between', 'items-center', 'my-3');
+  div.classList.add('flex', 'justify-between', 'items-center', 'my-4', 'border-y-2', 'py-4', 'rounded-md', 'shadow-xl');
   const p = document.createElement('p');
   p.textContent = `${title}`;
   const p2 = document.createElement('p');

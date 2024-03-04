@@ -81,25 +81,25 @@
               <span class="loading loading-spinner loading-lg"></span>
             </div>
             <!--News container dynamic-->
-            <div class="flex gap-5 lg:flex-row flex-col">
-              <div id="news-container" class="flex flex-col gap-5">
+            <div class="grid lg:grid-cols-5 grid-cols-1 gap-5">
+              <div id="news-container" class="flex flex-col col-span-3 gap-5">
               </div>
               <!-- right content -->
-              <div>
-                <div class="bg-base-100 shadow-xl rounded-2xl p-4 lg:w-[460px]">
+              <div class="col-span-2">
+                <div class="bg-base-100 shadow-xl rounded-2xl p-4">
                     <div class="flex justify-between items-center">
                       <p class="font-extrabold text-xl">Title</p>
                         <div class="flex gap-1">
-                        <p class="font-bold">Mark as read</p>
+                        <p class="font-bold text-xl">Mark as read</p>
                         <p id="mark-count" class="bg-[#12132D99] rounded-md text-white px-[6px] font-medium">0</p>
                         </div>
                     </div>
-                    <div class="border-dashed border-y-2 my-3">
+                    <div class="border-spacing-1 border-t-2 border-black my-3">
                         <div id="read-count-container">
                         </div>             
                     </div>
                 </div>
-              </div>
+              </div>  
             </div>
         </section>
         <!-- Join our forum section -->
