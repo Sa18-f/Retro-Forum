@@ -11,47 +11,47 @@ const loadNews = async (searchText) =>{
     displayNews(posts);
 }
 const displayNews = (posts) => {
-  const newsContainer = document.getElementById('news-container');
-  newsContainer.textContent = '';
-  posts.forEach(post => {
-      const statusBadge = `<div class="absolute top-4 left-20 w-4 h-4 rounded-full ${post.isActive ? 'bg-green-500' : 'bg-red-500'}"></div>`;
-      const div = document.createElement('div');
-      div.classList = `card card-side bg-base-100 shadow-xl lg:w-[750px]`;
-      div.innerHTML = `
-      <div class="relative">   
-        <img class="ml-4 mt-3 w-20 rounded-full h-20" src="${post.image}" alt="Movie"/>
-        ${statusBadge}
-      </div>
-      <div class="card-body">
-        <div class="flex gap-5">
-          <p>#<span>${post.category}</span></p>
-          <p>Author :  <span>${post.author.name}</span></p>
-        </div>
-        <h2 class="card-title">${post.title.replace(/'/g,'')}</h2>
-        <p>${post.description}</p>
-        <hr class="my-3">
-        <div class="flex justify-between">
-          <div class="flex gap-5">
-            <div class="flex gap-1">
-              <img class="h-7" src="./images/Group 13.png" alt="">
-              <p>${post.comment_count}</p>
-            </div>
-            <div class="flex gap-1">
-              <i class="fas fa-eye mt-1"></i>
-              <p>${post.view_count}</p>
-            </div>
-            <div class="flex gap-1">
-              <img class="h-7" src="./images/Group 18.png" alt="">
-              <p>${post.posted_time} min</p>
-            </div>
-          </div>
-          <button onclick="markAsRead('${post.title.replace(/'/g,'')}', ${post.view_count})" class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
-        </div>
-      </div>
-      `;
-      newsContainer.appendChild(div);
-  });
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.textContent = '';
   setTimeout(() => {
+    posts.forEach(post => {
+        const statusBadge = `<div class="absolute top-4 left-20 w-4 h-4 rounded-full ${post.isActive ? 'bg-green-500' : 'bg-red-500'}"></div>`;
+        const div = document.createElement('div');
+        div.classList = `card card-side bg-base-100 shadow-xl lg:w-[700px]`;
+        div.innerHTML = `
+        <div class="relative">   
+          <img class="ml-4 mt-3 w-20 rounded-full h-20" src="${post.image}" alt="Movie"/>
+          ${statusBadge}
+        </div>
+        <div class="card-body">
+          <div class="flex gap-5">
+            <p>#<span>${post.category}</span></p>
+            <p>Author :  <span>${post.author.name}</span></p>
+          </div>
+          <h2 class="card-title">${post.title.replace(/'/g,'')}</h2>
+          <p>${post.description}</p>
+          <hr class="my-3">
+          <div class="flex justify-between">
+            <div class="flex gap-5">
+              <div class="flex gap-1">
+                <img class="h-7" src="./images/Group 13.png" alt="">
+                <p>${post.comment_count}</p>
+              </div>
+              <div class="flex gap-1">
+                <i class="fas fa-eye mt-1"></i>
+                <p>${post.view_count}</p>
+              </div>
+              <div class="flex gap-1">
+                <img class="h-7" src="./images/Group 18.png" alt="">
+                <p>${post.posted_time} min</p>
+              </div>
+            </div>
+            <button onclick="markAsRead('${post.title.replace(/'/g,'')}', ${post.view_count})" class="bg-[#1cd1005d] rounded-full w-8 h-8"><i class="fa-solid fa-envelope"></i></button>
+          </div>
+        </div>
+        `;
+        newsContainer.appendChild(div);
+    });
     toggleLoadingSpinner(false);
   }, 2000);
 }; 
